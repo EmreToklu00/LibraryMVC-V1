@@ -1,0 +1,28 @@
+@model BookViewModel
+
+@{
+    var books = Model.books;
+}
+
+@section Header
+{
+    <partial name="_header">
+}
+
+
+@if (books.Count == 0)
+{
+    @await Html.PartialAsync("_nobook")
+   
+}
+else
+{
+    <div class="row">
+        @foreach (var product in books)
+        {
+            <div class="col-md-3">
+                @await Html.PartialAsync("_book",product)
+            </div>
+        }
+    </div>
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/modules/bootstrap/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    @await Html.PartialAsync("_navbar")
+    @RenderSection("Header",false)
+
+    <div class="container">
+        @if (IsSectionDefined("Categories"))
+        {
+            @RenderSection("Categories",false)
+            <div class="col-md-12">
+                @RenderBody()
+            </div>
+        }
+        else
+        {
+            <div class="col-md-12">
+                @RenderBody()
+            </div>
+        }
+    </div>
+    <footer class="py-5 bg-dark text-white text-center">
+        Library App
+    </footer>
+
+</body>
+
+</html>
